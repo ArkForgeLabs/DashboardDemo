@@ -1,0 +1,12 @@
+[package]
+name = "front-egui"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# 0.5.8
+blue_engine = { path = "./debug_crates/BlueEngine" }
+blue_engine_utilities = { path = "./debug_crates/BlueEngineUtilities", default-features = false, features = [
+    "egui",
+] }
+egui_extras = { version = "0.26.2", features = ["svg", "image"] }
