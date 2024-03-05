@@ -1,12 +1,25 @@
 [package]
-name = "front-egui"
+name = "dashboard_demo"
+authors = ["Elham Aryanpur <elhamaryanpur5@gmail.com>"]
+license = "Apache-2.0"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-# 0.5.8
+# 0.5.8 debug
 blue_engine = { path = "./debug_crates/BlueEngine" }
 blue_engine_utilities = { path = "./debug_crates/BlueEngineUtilities", default-features = false, features = [
     "egui",
 ] }
+
+# 0.5.8 release
+#blue_engine = "0.5.8"
+#blue_engine_utilities = { version="0.5.8", default-features = false, features = ["egui",] }
+
 egui_extras = { version = "0.26.2", features = ["svg", "image"] }
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+overflow-checks = false
